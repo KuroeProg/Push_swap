@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 15:07:01 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/11 18:08:09 by cfiachet         ###   ########.fr       */
+/*   Created: 2024/10/21 18:19:48 by cfiachet          #+#    #+#             */
+/*   Updated: 2024/10/21 18:36:26 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	stact_sorted(t_stack *a)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-}
+	t_list	*current;
 
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-	t_stack	*b;
-
-	if (argc < 2 || !argv[1])
-		return (0);
-	else if (argc == 2)
-		ft_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
-	if (!stack_sorted(a))
+	if (*lst == NULL)
+		return ;
+	while (*lst != NULL)
 	{
-		if (stacklen(a) == 2)
-			sa(&a);
-		else if (stacklen(a) == 3)
-			sort_three(&a);
-		else
-			sort_stacks(&a, &b);
+		current = (*lst)->next;
+		del((*lst)->content);
+		free (*lst);
+		*lst = current;
 	}
-	free_stack(&a);
-	return (0);
-	
 }

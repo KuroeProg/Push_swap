@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_unsignednbr.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 15:07:01 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/11 18:08:09 by cfiachet         ###   ########.fr       */
+/*   Created: 2024/11/03 15:12:02 by cfiachet          #+#    #+#             */
+/*   Updated: 2024/11/04 21:56:28 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-int	stact_sorted(t_stack *a)
+int	ft_unsignednbr(unsigned int d)
 {
-}
+	int		len;
+	char	c;
 
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-	t_stack	*b;
-
-	if (argc < 2 || !argv[1])
-		return (0);
-	else if (argc == 2)
-		ft_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
-	if (!stack_sorted(a))
+	len = 0;
+	if (d > 9)
 	{
-		if (stacklen(a) == 2)
-			sa(&a);
-		else if (stacklen(a) == 3)
-			sort_three(&a);
-		else
-			sort_stacks(&a, &b);
+		len += ft_unsignednbr(d / 10);
+		len += ft_unsignednbr(d % 10);
 	}
-	free_stack(&a);
-	return (0);
-	
+	else
+	{
+		c = d + '0';
+		write(1, &c, 1);
+		len++;
+	}
+	return (len);
 }

@@ -1,55 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   split2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 13:34:02 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/09 17:58:44 by cfiachet         ###   ########.fr       */
+/*   Created: 2025/01/11 19:27:54 by cfiachet          #+#    #+#             */
+/*   Updated: 2025/01/11 19:28:31 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack *a)
+int	ft_countword(char const *s, char sep)
 {
-	int i;
-	int temp;
+	size_t	i;
+	size_t	count;
 
-	if (a->size > 1)
+	i = 0;
+	count = 0;
+	while (s[i])
 	{
-		temp = a->data[a->size - 1];
-		i = a->size - 1;
-		while (i > 0)
+		while (s[i] && ft_check(s[i], sep))
+			i++;
+		if (s[i] && !ft_check(s[i], sep))
 		{
-			a->data[i] = a->data[i - 1];
-			i--;
+			count++;
+			while (s[i] && !ft_check(s[i], sep))
+				i++;
 		}
-		a->data[0] = temp;
 	}
+	return (count);
 }
 
-void	rrb(t_stack *b)
-{
-	int i;
-	int temp;
-
-	if (b->size > 1)
-	{
-		temp = b->data[b->size - 1];
-		i = b->size - 1;
-		while (i > 0)
-		{
-			b->data[i] = b->data[i - 1];
-			i--;
-		}
-		b->data[0] = temp;
-	}
-}
-
-void	rrr(t_stack *a, t_stack *b)
-{
-	rra(a);
-	rrb(b);
-}

@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 15:07:01 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/11 18:08:09 by cfiachet         ###   ########.fr       */
+/*   Created: 2024/10/13 15:07:26 by cfiachet          #+#    #+#             */
+/*   Updated: 2024/10/13 15:39:07 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	stact_sorted(t_stack *a)
+char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
-}
+	size_t	i;
+	size_t	y;
 
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-	t_stack	*b;
-
-	if (argc < 2 || !argv[1])
-		return (0);
-	else if (argc == 2)
-		ft_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
-	if (!stack_sorted(a))
+	i = 0;
+	y = 0;
+	if (s2[y] == '\0')
+		return (((char *)s1));
+	while (s1[i])
 	{
-		if (stacklen(a) == 2)
-			sa(&a);
-		else if (stacklen(a) == 3)
-			sort_three(&a);
-		else
-			sort_stacks(&a, &b);
+		y = 0;
+		while ((s1[i + y] == s2[y] && s2[y] && i + y < len))
+		{
+			y++;
+			if (s2[y] == '\0')
+				return (((char *)s1) + i);
+		}
+		i++;
 	}
-	free_stack(&a);
-	return (0);
-	
+	return (NULL);
 }

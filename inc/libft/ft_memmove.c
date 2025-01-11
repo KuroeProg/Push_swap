@@ -1,41 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 15:07:01 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/11 18:08:09 by cfiachet         ###   ########.fr       */
+/*   Created: 2024/10/11 15:33:08 by cfiachet          #+#    #+#             */
+/*   Updated: 2024/10/15 14:40:55 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	stact_sorted(t_stack *a)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-}
+	size_t						i;
+	const unsigned char			*s;
+	unsigned char				*d;
 
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-	t_stack	*b;
-
-	if (argc < 2 || !argv[1])
-		return (0);
-	else if (argc == 2)
-		ft_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
-	if (!stack_sorted(a))
+	s = (const unsigned char *)src;
+	d = (unsigned char *)dest;
+	i = 0;
+	if (!dest && !src)
+		return (NULL);
+	if (d > s)
+		while (n-- > 0)
+			d[n] = s[n];
+	else
 	{
-		if (stacklen(a) == 2)
-			sa(&a);
-		else if (stacklen(a) == 3)
-			sort_three(&a);
-		else
-			sort_stacks(&a, &b);
+		while (i < n)
+		{
+			d[i] = s[i];
+			i++;
+		}
 	}
-	free_stack(&a);
-	return (0);
-	
+	return (dest);
 }

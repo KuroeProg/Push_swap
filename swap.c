@@ -6,37 +6,43 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:17:35 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/07 13:20:19 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/11 17:57:21 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack *a)
+void	sa(t_stack **a)
 {
-	int temp;
+	t_stack *first;
+	t_stack *second;
 
-	if (a->size > 1)
+	if (*a && (*a)->next)
 	{
-		temp = a->data[0];
-		a->data[0] = a->data[1];
-		a->data[1] = temp;
+		first = *a;
+		second = (*a)->next;
+		first->next = second->next;
+		second->next = first;
+		*a = second;
 	}
 }
 
-void	sb(t_stack *b)
+void	sb(t_stack **b)
 {
-	int temp;
+	t_stack *first;
+	t_stack *second;
 
-	if (b->size > 1)
+	if (*b && (*b)->next)
 	{
-		temp = b->data[0];
-		b->data[0] = b->data[1];
-		b->data[1] = temp;
+		first = *b;
+		second = (*b)->next;
+		first->next = second->next;
+		second->next = first;
+		*b = second;
 	}
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack **a, t_stack **b)
 {
 	sa(a);
 	sb(b);

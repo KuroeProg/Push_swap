@@ -1,41 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 15:07:01 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/11 18:08:09 by cfiachet         ###   ########.fr       */
+/*   Created: 2024/11/03 12:14:02 by cfiachet          #+#    #+#             */
+/*   Updated: 2024/11/04 21:53:03 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
+# include <stdarg.h>
+# include <unistd.h>
 
-int	stact_sorted(t_stack *a)
-{
-}
+int	ft_printf(const char *str, ...);
 
-int	main(int argc, char **argv)
-{
-	t_stack	*a;
-	t_stack	*b;
+int	ft_integers(int d);
+int	ft_putstr(char *str);
+int	ft_unsignednbr(unsigned int d);
+int	ft_puthexa(unsigned int c, char letter);
+int	ft_putptr(void	*ptr);
 
-	if (argc < 2 || !argv[1])
-		return (0);
-	else if (argc == 2)
-		ft_split(argv[1], ' ');
-	init_stack_a(&a, argv + 1);
-	if (!stack_sorted(a))
-	{
-		if (stacklen(a) == 2)
-			sa(&a);
-		else if (stacklen(a) == 3)
-			sort_three(&a);
-		else
-			sort_stacks(&a, &b);
-	}
-	free_stack(&a);
-	return (0);
-	
-}
+#endif
