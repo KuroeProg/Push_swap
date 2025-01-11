@@ -63,4 +63,15 @@ void	sort_stacks(t_stack **a, t_stack **b);
 //free
 void	ft_freestack(t_stack *a);
 
+//utils
+int		ft_check(char c, char sep);
+char	*ft_mallocworld(const char *str, char c);
+void	free_tab(char **tab, size_t i);
+int		ft_countword(char const *s, char sep);
+char	**ft_split(char const *s, char c);
+void	init_stack_a(t_stack **a, char **argv);
+int		is_conform(char *str);
+int		is_present(t_stack *a, int n);
+static long	ft_atol(const char *str);
+
 #endif

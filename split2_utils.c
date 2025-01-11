@@ -1,41 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   split2_utils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/11 21:39:41 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/11 21:44:42 by cfiachet         ###   ########.fr       */
+/*   Created: 2025/01/11 21:32:15 by cfiachet          #+#    #+#             */
+/*   Updated: 2025/01/11 21:32:30 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_conform(char *str)
+int	ft_check(char c, char sep)
 {
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]) && str[i] != ' ' && str[i] != '-')
-			return (1);
-		i++;
-	}
-	return (0);
+	return (c == sep);
 }
 
-int	is_present(t_stack *a, int n)
+char	*ft_mallocworld(const char *str, char c)
 {
-	t_stack *tmp;
+	size_t	i;
+	char	*strf;
 
-	tmp = a;
-	while (tmp)
+	i = 0;
+	while (str[i] && !ft_check(str[i], c))
+		i++;
+	strf = (char *)malloc(sizeof(char) * (i + 1));
+	if (!strf)
+		return (NULL);
+	i = 0;
+	while (str[i] && !ft_check(str[i], c))
 	{
-		if (tmp->nbr == n)
-			return (1);
-		tmp = tmp->next;
+		strf[i] = str[i];
+		i++;
 	}
-	return (0);
+	strf[i] = '\0';
+	return (strf);
+}
+
+void	free_tab(char **tab, size_t i)
+{
+	while (i > 0)
+	{
+		free(tab[i - 1]);
+		i--;
+	}
+	free(tab);
 }
