@@ -6,49 +6,53 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 13:34:02 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/09 17:58:44 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/11 23:11:03 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_stack *a)
+void	rra(t_stack **a)
 {
-	int i;
-	int temp;
+	t_stack *last;
+	t_stack *before_last;
 
-	if (a->size > 1)
+	if (*a && (*a)->next)
 	{
-		temp = a->data[a->size - 1];
-		i = a->size - 1;
-		while (i > 0)
+		last = *a;
+		before_last = NULL;
+		while (last->next)
 		{
-			a->data[i] = a->data[i - 1];
-			i--;
+			before_last = last;
+			last = last->next;
 		}
-		a->data[0] = temp;
+		before_last->next = NULL;
+		last->next = *a;
+		*a = last;
 	}
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_stack **b)
 {
-	int i;
-	int temp;
+	t_stack *last;
+	t_stack *before_last;
 
-	if (b->size > 1)
+	if (*b && (*b)->next)
 	{
-		temp = b->data[b->size - 1];
-		i = b->size - 1;
-		while (i > 0)
+		last = *b;
+		before_last = NULL;
+		while (last->next)
 		{
-			b->data[i] = b->data[i - 1];
-			i--;
+			before_last = last;
+			last = last->next;
 		}
-		b->data[0] = temp;
+		before_last->next = NULL;
+		last->next = *b;
+		*b = last;
 	}
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_stack **a, t_stack **b)
 {
 	rra(a);
 	rrb(b);
