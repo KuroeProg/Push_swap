@@ -30,21 +30,6 @@ typedef struct s_stack
 	struct s_stack 	*preview;
 }				t_stack;
 
-void	sa(t_stack *a);
-void	sb(t_stack *b);
-void	ss(t_stack *a, t_stack *b);
-
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
-
-void	ra(t_stack *a);
-void	rb(t_stack *b);
-void	rr(t_stack *a, t_stack *b);
-
-void	rra(t_stack *a);
-void	rrb(t_stack *b);
-void	rrr(t_stack *a, t_stack *b);
-
 // Handle Errors
 
 // stack initiation
@@ -55,9 +40,22 @@ void	init_stack_a(t_stack **a, char **argv);
 // commands
 
 //algorithms
+void	sa(t_stack **a);
+void	sb(t_stack **b);
+void	ss(t_stack **a, t_stack **b);
+
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
+
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rr(t_stack **a, t_stack **b);
+
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
 int		stact_sorted(t_stack *a);
-void	sa(t_stack *a);
-void	sort_three(t_stack *a);
+void	sort_three(t_stack **a);
 void	sort_stacks(t_stack **a, t_stack **b);
 
 //free
@@ -68,7 +66,7 @@ int		ft_check(char c, char sep);
 char	*ft_mallocworld(const char *str, char c);
 void	free_tab(char **tab, size_t i);
 int		ft_countword(char const *s, char sep);
-char	**ft_split(char const *s, char c);
+char	**ft_split2(char const *s, char c);
 void	init_stack_a(t_stack **a, char **argv);
 int		is_conform(char *str);
 int		is_present(t_stack *a, int n);

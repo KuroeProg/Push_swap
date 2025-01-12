@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 19:27:54 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/11 21:30:35 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/12 13:32:07 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static char	*get_next_word(char *str, char c)
 	return (next_word);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split2(char const *s, char c)
 {
 	size_t		i;
 	char		**tab;

@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 13:55:31 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/11 21:51:05 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/12 18:38:57 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,6 @@ static long	ft_atol(const char *str)
 		str++;
 	}
 	return (result * sign);
-}
-
-static void	append_node(t_stack **stack, int n)
-{
-	//ajouter des noeuds
 }
 
 
