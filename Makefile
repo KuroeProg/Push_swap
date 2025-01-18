@@ -2,12 +2,12 @@ NAME = push_swap
 CC = clang
 FLAGS = -Wall -Werror -Wextra
 
-SRCS = main.c
+SRCS = main.c instruction.c node.c stack.c
 
 all: $(NAME)
 
 $(NAME):
-	$(CC) $(FLAGS) $(SRCS) -o $(NAME)
+	$(CC) $(SRCS) -Iinc/libft -o $(NAME)
 
 clean:
 	rm $(NAME)
