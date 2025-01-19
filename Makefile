@@ -2,7 +2,7 @@ NAME = push_swap
 CC = clang
 FLAGS = -Wall -Werror -Wextra
 
-SRCS = main.c instruction.c node.c stack.c
+SRCS = main.c instruction.c node.c stack.c algorithm.c
 
 all: $(NAME)
 

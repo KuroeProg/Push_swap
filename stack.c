@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 19:30:23 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/18 23:06:45 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/19 12:06:34 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,23 @@ void	push(t_stack *stack, t_node *a)
 	t_node	*start;
 	t_node	*end;
 
+	if (!a)
+		return ;
+	if (stack->size == 0)
+	{
+		stack->top = a;
+		stack->size++;
+		return ;
+	}
+	if (stack->size == 1)
+	{
+		start = stack->top;
+		stack->top = a;
+		link_nodes(a, start);
+		link_nodes(start, a);
+		stack->size++;
+		return ;
+	}
 	start = stack->top;
 	end = start->prev;
 	link_nodes(end, a);
@@ -96,6 +113,41 @@ t_node	*pop(t_stack *stack)
 	return (pop);
 }
 
-void	swap(t_stack *stack);
-void	rotate(t_stack *stack);
-void	rreverse(t_stack *stack);
+void	swap(t_stack *stack)
+{
+	t_node	*first;
+	t_node	*second;
+	int		temp;
+
+	if (stack->size < 2)
+		return ;
+	first = stack->top;
+	second = first->next;
+	temp = second->data;
+	second->data = first->data;
+	first->data = temp;
+}
+
+void	rotate(t_stack *stack)
+{
+	t_node	*start;
+	t_node	*second;
+
+	if (stack->size < 2)
+		return ;
+	start = stack->top;
+	second = start->next;
+	stack->top = second;
+}
+
+void	rreverse(t_stack *stack)
+{
+		t_node	*start;
+	t_node	*end;
+
+	if (stack->size < 2)
+		return ;
+	start = stack->top;
+	end = start->prev;
+	stack->top = end;
+}

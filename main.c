@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:35:46 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/18 23:05:41 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/19 12:08:34 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	print_stacks(t_stack *a, t_stack *b)
 		else
 			printf("|                |\n");
 	}
+	getchar();
 }
 
 int	main(int argc, char **argv)
@@ -53,9 +54,12 @@ int	main(int argc, char **argv)
 	int tab2[2] = {9, -10};
 	fill_stack(&a, tab, 4);
 	fill_stack(&b, tab2, 2);
-	push(&a, create_node(24));
-	pop(&b);
-	pop(&b);
+	pa(&a, &b);
+	pa(&a, &b);
+	pa(&a, &b);
+	pb(&a, &b); 
+	pb(&a, &b); 
+	pb(&a, &b);
 	print_stacks(&a, &b);
 	// t_node a = create_node(10);
 	// t_node b = create_node(2);

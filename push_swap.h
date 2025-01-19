@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:30:49 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/18 22:03:55 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/19 12:10:53 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	rreverse(t_stack *stack);
 void	sa(t_stack *stack_a);
 void	sb(t_stack *stack_b);
 void	ss(t_stack *stack_a, t_stack *stack_b);
-void	pa(t_stack *stack_b, t_stack *stack_a);
+void	pa(t_stack *stack_a, t_stack *stack_b);
 void	pb(t_stack *stack_a, t_stack *stack_b);
 void	ra(t_stack *stack_a);
 void	rb(t_stack *stack_b);
@@ -55,8 +55,7 @@ void	rra(t_stack *stack_a);
 void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
-
-
+//algorithms
 
 
 #endif
