@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:30:49 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/19 12:10:53 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/20 01:25:26 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 //algorithms
-
+void	bubble_sort(t_stack *stack);
 
 #endif
