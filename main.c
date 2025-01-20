@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 16:35:46 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/20 01:52:33 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/21 00:46:29 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,20 @@ void	print_stacks(t_stack *a, t_stack *b)
 	}
 	//getchar();
 }
-void	bubble_sort_int(int *tab, int size);
 int	main(int argc, char **argv)
 {
-	(void)argc;
-	(void)argv;
-	t_stack a = create_stack();
-	t_stack b = create_stack();
-	int tab[10] = {5, 7, -34534853, 43824, 234, 353, 8, 4, 32453, 0};
-	int tab2[2] = {9, -10};
+	int	*tab;
+	if (argc < 2)
+		return (0);
+	t_stack a;
+	a = create_stack();
+	tab = sorter(argv, &a);
+	
 	fill_stack(&a, tab, 10);
-	fill_stack(&b, tab2, 2);
+	t_stack	b = create_stack();
+	int *tab2 = {10,54,34,2};
+	fill_stack(&b, tab2, 4);
+
 	// pa(&a, &b);
 	// pa(&a, &b);
 	// pa(&a, &b);

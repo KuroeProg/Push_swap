@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:30:49 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/20 21:14:49 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/21 00:47:05 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,10 @@ void	rrr(t_stack *stack_a, t_stack *stack_b);
 void	bubble_sort(t_stack *stack);
 
 //utils
-long	atol(char *str);
+long	ft_atol(char *str);
 void	ft_error(int n);
 int		*sorter(char *str, t_stack *stack);
 void	free_tab(char **tab);
+int		is_indouble(int	*tab);
 
 #endif
