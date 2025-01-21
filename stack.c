@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 19:30:23 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/19 12:06:34 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:25:00 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,54 @@ void 	fill_stack(t_stack *stack, int *tab, int size)
 	stack->size = size;
 }
 
+t_node	*get_min_node(t_stack *stack)
+{
+	t_node *temp;
+	t_node *min;
+
+	temp = stack->top;
+	min = NULL;
+	while (temp != min)
+	{
+		if (!min || temp->data < min->data)
+			min = temp;
+		temp = temp->next;
+	}
+	return (min);
+}
+
+t_node	*get_max_node(t_stack *stack)
+{
+	t_node *temp;
+	t_node *max;
+
+	temp = stack->top;
+	max = NULL;
+	while (temp != max)
+	{
+		if (!max || temp->data > max->data)
+			max = temp;
+		temp = temp->next;
+	}
+	return (max);
+}
+
+t_node	*get_nearest_min_node(t_stack *stack, int data)
+{
+	t_node *temp;
+	t_node *nearest;
+
+	temp = stack->top;
+	nearest = NULL;
+	while (temp != nearest)
+	{
+		if (temp->data > data && (!nearest || temp->data < nearest->data))
+			nearest = temp;
+		temp = temp->next;
+	}
+	return (nearest);
+}
+
 void	push(t_stack *stack, t_node *a)
 {
 	t_node	*start;
@@ -50,12 +98,18 @@ void	push(t_stack *stack, t_node *a)
 		return ;
 	if (stack->size == 0)
 	{
+		stack->min = a->data;
+		stack->max = a->data;
 		stack->top = a;
 		stack->size++;
 		return ;
 	}
 	if (stack->size == 1)
 	{
+		if (a->data < stack->min)
+			stack->min = a->data;
+		if (a->data > stack->max)
+			stack->max = a->data;
 		start = stack->top;
 		stack->top = a;
 		link_nodes(a, start);
@@ -69,6 +123,10 @@ void	push(t_stack *stack, t_node *a)
 	link_nodes(a, start);
 	stack->top = a;
 	stack->size++;
+	if (a->data < stack->min)
+		stack->min = a->data;
+	if (a->data > stack->max)
+		stack->max = a->data;
 }
 
 t_node	*pop(t_stack *stack)
@@ -83,6 +141,8 @@ t_node	*pop(t_stack *stack)
 			return (NULL);
 		if (stack->size == 1)
 		{
+			stack->min = INT_MAX;
+			stack->max = INT_MIN;
 			pop = stack->top;
 			stack->top = NULL;
 			stack->size--;
@@ -97,6 +157,8 @@ t_node	*pop(t_stack *stack)
 			start->next = NULL;
 			start->prev = NULL;
 			stack->top = start;
+			stack->min = start->data;
+			stack->max = start->data;
 			stack->size--;
 			return (pop);
 		}
@@ -109,7 +171,10 @@ t_node	*pop(t_stack *stack)
 	link_nodes(end, start);
 	stack->top = start;
 	stack->size--;
-
+	if (pop->data == stack->min)
+		stack->min = get_min_node(stack)->data;
+	if (pop->data == stack->max)
+		stack->max = get_max_node(stack)->data;
 	return (pop);
 }
 

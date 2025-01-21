@@ -6,11 +6,11 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 19:53:12 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/21 00:51:40 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:50:38 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 long	ft_atol(char *str)
 {
@@ -33,49 +33,62 @@ long	ft_atol(char *str)
 	return (result * sign);
 }
 
-int		*sorter(char **str, t_stack *stack)
-{
-	int 	i;
-	char	**split;
-	int		n;
-	int		*tab;
 
-	i = 0;
-	while (str[i] && (ft_isdigit(str[i++])) || str[i] == ' ')
+/* NEED TO TREAT THE CASE OF STRING OR ARRAY OF ARRAY.
+long		*sorter(char **str, t_stack *stack)
+{
+	t_point	p;
+	char	**split;
+	int		*tab;
+	long 	value;
+
+	p.i = 0;
+	p.y = 0;
+	while (str[p.i])
 	{
-		if (!ft_isdigit(str[i]) && str[i] != ' ')
-			ft_error(1);
-	}
-	if (is_indouble(str) == 1)
-		ft_error(1);
-	if (str[i])
-		split = ft_split(str, ' ');
-	i = 0;
-	n = check_size(split);
-	tab = malloc(sizeof(int) * n);
-	while (i <= n)
-	{
-		tab[i++] = ft_atol(split[i]);
-		if (tab[i] >= 2147483647 || tab[i] <= -2147483648)
+		while (str[p.i][p.y])
 		{
-			ft_error(1);
-			free_tab(tab);
+			if ((!ft_isdigit(str[p.i][p.y]) || str[p.i][p.y] != ' '))
+				ft_error(1);
+			p.y++;
 		}
+		p.i++;
+		p.y = 0;
 	}
-	is_indouble(tab);
-	fill_stack(stack, tab, i);
+	split = ft_split(str, ' ');
+	p.n = check_size(split);
+	tab = malloc(sizeof(int) * p.n);
+	p.i = 0;
+	while (split[p.i])
+	{
+		value = ft_atoi(split[p.i]);
+		if (tab[p.i] >= 2147483647 || tab[p.i] <= -2147483648)
+		{
+			free_tab(split);
+			ft_error(1);
+		}
+		tab[p.i++] = (int)value;
+	}
+	if (!is_indouble(tab, p.n) == 1)
+	{
+		free_tab(split);
+		free(tab);
+		ft_error(1);
+	}
+	fill_stack(stack, tab, p.i);
+	free_tab(split);
 
 	return (tab);
-}
+} */
 
-int		is_indouble(int *tab)
+int		is_indouble(int *tab, int n)
 {
 	int	i;
 	int temp;
 
 	temp = tab[i];
 	i = 1;
-	while (tab[i])
+	while (i < n)
 	{
 		if (temp == tab[i])
 			return (1);

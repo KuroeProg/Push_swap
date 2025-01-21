@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:30:49 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/21 00:47:05 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/21 14:10:59 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include "libft.h"
 # include "ft_printf/ft_printf.h"
+# include <limits.h>
 
 typedef struct s_node
 {
@@ -27,7 +28,26 @@ typedef struct s_stack
 {
 	t_node	*top;
 	int		size;
+	int		min;
+	int		max;
 } t_stack;
+
+typedef struct s_point
+{
+	int	i;
+	int	y;
+	int	k;
+	int	n;
+} t_point;
+
+typedef struct s_move
+{
+	int	ra;
+	int	rra;
+	int	rb;
+	int	rrb;
+	int cost;
+} t_move;
 
 //nodes
 t_node	*create_node(int data);
@@ -56,13 +76,26 @@ void	rrb(t_stack *stack_b);
 void	rrr(t_stack *stack_a, t_stack *stack_b);
 
 //algorithms
-void	bubble_sort(t_stack *stack);
+//void	bubble_sort(t_stack *stack);
+void	chunk_sort(t_stack	*stack_a, t_stack *stack_b);
+void	turkish_sort(t_stack *stack_a, t_stack *stack_b);
+
+t_node	*get_min_node(t_stack *stack); //recuperer la node avec la data la plus elevee
+t_node	*get_max_node(t_stack *stack); //recuperer la node avec la data la plus elevee
+t_node	*get_nearest_min_node(t_stack *stack, int data); //recuperer la node inferieure la plus proche de la data donnee
+// // int		get_node_next_index(t_stack *stack, t_node *node); //recuperer lindex en partant de top et en se deplacement par les next
+void	do_move(t_stack *stack_a, t_stack *stack_b, t_move *move); //faire les moves en fonction du t_move donne
+void	set_node_move(t_stack *stack_a, t_stack *stack_b, t_node *node, t_move *move); //calcule et retourne un t_move en fonction de la node donnee
+
+
 
 //utils
 long	ft_atol(char *str);
 void	ft_error(int n);
-int		*sorter(char *str, t_stack *stack);
+long		*sorter(char **str, t_stack *stack);
 void	free_tab(char **tab);
 int		is_indouble(int	*tab);
+
+void	print_stacks(t_stack *a, t_stack *b);
 
 #endif
