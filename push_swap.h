@@ -6,13 +6,14 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:30:49 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/21 14:10:59 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/21 19:16:09 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include <stdlib.h>
+# include <stdio.h>
 # include "libft.h"
 # include "ft_printf/ft_printf.h"
 # include <limits.h>
@@ -38,6 +39,7 @@ typedef struct s_point
 	int	y;
 	int	k;
 	int	n;
+	int len;
 } t_point;
 
 typedef struct s_move
@@ -95,6 +97,9 @@ void	ft_error(int n);
 long		*sorter(char **str, t_stack *stack);
 void	free_tab(char **tab);
 int		is_indouble(int	*tab);
+
+//parsing
+int		parsing_sentence(char *str);
 
 void	print_stacks(t_stack *a, t_stack *b);
 

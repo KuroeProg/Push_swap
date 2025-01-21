@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 14:45:07 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/21 14:27:47 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/21 19:08:00 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,8 +137,8 @@ void	set_best_move(t_move temp_move, t_move *best_move)
 	}
 	if (temp_move.rb + temp_move.rra < best_move->cost)
 	{
-		best_move->ra = temp_move.rb;
-		best_move->rb = 0;
+		best_move->ra = 0;
+		best_move->rb = temp_move.rb;
 		best_move->rra = temp_move.rra;
 		best_move->rrb = 0;
 		best_move->cost = temp_move.rb + temp_move.rra;
@@ -165,6 +165,7 @@ void	turkish_sort(t_stack *stack_a, t_stack *stack_b)
 		}	
 		do_move(stack_a, stack_b, &best_move);
 		pa(stack_a, stack_b);
+		// print_stacks(stack_a, stack_b);
 	}
 	if (stack_a->top->data < stack_a->size / 2)
 		while (stack_a->top != get_min_node(stack_a))
