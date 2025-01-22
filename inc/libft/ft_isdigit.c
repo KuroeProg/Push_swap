@@ -6,11 +6,11 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 13:53:57 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/21 22:48:47 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/23 00:02:37 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
 int	ft_isdigit(int c)
 {

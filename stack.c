@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 19:30:23 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/22 13:57:58 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/23 00:17:45 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ t_node	*pop(t_stack *stack)
 			stack->size--;
 			return (pop);
 		}
-		if (stack->size == 2) //////FAIRE UNE FONCTION UNLINK NODES
+		if (stack->size == 2)
 		{
 			pop = stack->top;
 			start = pop->next;

@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:30:49 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/22 14:08:47 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/22 23:51:16 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,12 @@ t_node	*get_max_node(t_stack *stack); //recuperer la node avec la data la plus e
 t_node	*get_nearest_min_node(t_stack *stack, int data); //recuperer la node inferieure la plus proche de la data donnee
 // // int		get_node_next_index(t_stack *stack, t_node *node); //recuperer lindex en partant de top et en se deplacement par les next
 void	do_move(t_stack *stack_a, t_stack *stack_b, t_move *move); //faire les moves en fonction du t_move donne
-void	set_node_move(t_stack *stack_a, t_stack *stack_b, t_node *node, t_move *move); //calcule et retourne un t_move en fonction de la node donnee
+void	set_node_move(t_stack *stack_a, t_stack *stack_b, t_node *node, t_move *move);
+void	sort_three(t_stack *stack);
+void	sort_four(t_stack *stack_a, t_stack *stack_b);
+void	sort_five(t_stack *stack_a, t_stack *stack_b);
+void	sort_small(t_stack *stack_a, t_stack *stack_b);
+void	sort_eight(t_stack *stack_a, t_stack *stack_b);
 
 
 
@@ -103,11 +108,15 @@ int		int_tab_min_index(int *tab, int size);
 int		int_tab_next_index(int *tab, int size, int current);
 int		int_tab_count_value(int *tab, int size, int value);
 char	**ft_split(char const *s, char c);
+int		check_tab_size(int *tab, int len, t_stack *stack_a, t_stack *stack_b);
+int		get_node_position(t_stack *stack, t_node *node);
 
 //parsing
 int		parsing_sentence(char *str, t_point *pt);
 int		parsing_args(char **argv, t_point *pt);
 int		ft_isdigit(int c);
+int    check_tab(int *tab, int len);
+void	ft_error(int n);
 
 void	print_stacks(t_stack *a, t_stack *b);
 

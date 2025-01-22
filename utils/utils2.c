@@ -6,7 +6,10 @@ int	ft_is_int(char *str)
 
     num = ft_atol(str);
     if (num < INT_MIN || num > INT_MAX)
+    {
+        write(2, "Error\n", 6);
         return (0);
+    }
     return (1);
 }
 
