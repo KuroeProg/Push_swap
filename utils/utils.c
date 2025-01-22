@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 19:53:12 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/21 15:20:15 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:46:46 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ long	ft_atol(char *str)
 
 	i = 0;
 	sign = 1;
-	while (str[i] >= 9 && str[i] <= 13 || str[i] == 32)
+	result = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
@@ -28,8 +29,8 @@ long	ft_atol(char *str)
 			sign = -1;
 		i++;
 	}
-	while (ft_isdigit(str[i++]))
-		result = result * 10 + (str[i] - '0');
+	while (ft_isdigit(str[i]))
+		result = result * 10 + (str[i++] - '0');
 	return (result * sign);
 }
 
@@ -86,7 +87,7 @@ int		is_indouble(int *tab, int n)
 	int	i;
 	int temp;
 
-	temp = tab[i];
+	temp = tab[0];
 	i = 1;
 	while (i < n)
 	{

@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:30:49 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/21 19:16:09 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:08:47 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,12 @@ typedef struct s_stack
 
 typedef struct s_point
 {
-	int	i;
-	int	y;
-	int	k;
-	int	n;
-	int len;
+    int	i;
+    int	y;
+    int	k;
+    int	n;
+    int len;
+    int *tab;
 } t_point;
 
 typedef struct s_move
@@ -96,10 +97,17 @@ long	ft_atol(char *str);
 void	ft_error(int n);
 long		*sorter(char **str, t_stack *stack);
 void	free_tab(char **tab);
-int		is_indouble(int	*tab);
+int		is_indouble(int	*tab, int n);
+int		ft_is_int(char *str);
+int		int_tab_min_index(int *tab, int size);
+int		int_tab_next_index(int *tab, int size, int current);
+int		int_tab_count_value(int *tab, int size, int value);
+char	**ft_split(char const *s, char c);
 
 //parsing
-int		parsing_sentence(char *str);
+int		parsing_sentence(char *str, t_point *pt);
+int		parsing_args(char **argv, t_point *pt);
+int		ft_isdigit(int c);
 
 void	print_stacks(t_stack *a, t_stack *b);
 

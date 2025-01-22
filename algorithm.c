@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 14:45:07 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/21 19:08:00 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/22 15:02:41 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,10 @@ void	chunk_sort(t_stack	*stack_a, t_stack *stack_b)
 			if (stack_a->top->data < median)
 				pb(stack_a, stack_b);
 			else
-				rotate(stack_a);
+				ra(stack_a);
 			index++;
 		}
 	}
-	if (stack_a->size == 2 && stack_a->top->data > stack_a->top->next->data)
-		sa(stack_a);
 }
 
 void	do_move(t_stack *stack_a, t_stack *stack_b, t_move *move)
