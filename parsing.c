@@ -18,9 +18,9 @@ int	parsing_sentence(char *str, t_point *pt)
 	i = 0;
 	while (i < pt->len)
 	{
-		if (!ft_is_int(split[i]))
+		if (!ft_is_int(split[i])) 
 			return (free_tab(split), free(pt->tab), 0);
-		pt->tab[i] = ft_atol(split[i]);
+		    pt->tab[i] = ft_atol(split[i]);
 		i++;
 	}
 	free_tab(split);
@@ -37,10 +37,7 @@ int	parsing_args(char **argv, t_point *pt)
 
     i = 0;
     while (argv[i])
-    {
-        total_len += ft_strlen(argv[i]) + 1; 
-        i++;
-    }
+        total_len += ft_strlen(argv[i++]) + 1;
     joined_args = malloc(total_len);
     if (!joined_args)
         return (0);
@@ -60,11 +57,7 @@ int	parsing_args(char **argv, t_point *pt)
         i++;
     }
     if (!parsing_sentence(joined_args, pt))
-    {
-        free(joined_args);
-        return (0);
-    }
-
+        return (free(joined_args), 0);
     free(joined_args);
     return (1);
 }

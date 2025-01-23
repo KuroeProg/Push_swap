@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 00:18:36 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/23 00:18:37 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/23 21:22:01 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_error(int n)
 {
 	if (n == 1)
 		write(2, "Error\n", 6);
+	
 	exit(1);
 }
 

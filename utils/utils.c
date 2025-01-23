@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 19:53:12 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/23 00:18:47 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/23 20:57:38 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,10 @@ long	ft_atol(char *str)
 		i++;
 	}
 	while (ft_isdigit(str[i]))
-		result = result * 10 + (str[i++] - '0');
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
 	return (result * sign);
 }
 
