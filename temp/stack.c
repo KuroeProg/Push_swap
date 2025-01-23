@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 19:30:23 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/23 16:06:35 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/23 14:45:42 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,6 @@ t_node	*pop(t_stack *stack)
 			stack->max = INT_MIN;
 			pop = stack->top;
 			stack->top = NULL;
-			//write(2, "BB", 2);
 			stack->size--;
 			return (pop);
 		}
@@ -159,16 +158,10 @@ t_node	*pop(t_stack *stack)
 			start->prev = NULL;
 			stack->top = start;
 			stack->min = start->data;
-			//write(2, "AA", 2);
 			stack->max = start->data;
 			stack->size--;
 			return (pop);
 		}
-	}
-	else
-	{
-		stack->min = INT_MIN;
-		stack->max = INT_MAX;
 	}
 	pop = stack->top;
 	end = pop->prev;

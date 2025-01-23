@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 17:30:49 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/22 23:51:16 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/23 15:12:42 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,9 @@ int		parsing_args(char **argv, t_point *pt);
 int		ft_isdigit(int c);
 int    check_tab(int *tab, int len);
 void	ft_error(int n);
+void	init_data(t_point *pt, t_stack *a, t_stack *b);
 
-void	print_stacks(t_stack *a, t_stack *b);
+void	free_all(t_stack *a, t_stack *b);
+void	free_stack(t_stack *stack);
 
 #endif

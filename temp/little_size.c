@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:49:57 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/23 15:43:14 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/22 22:48:13 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,8 +120,6 @@ int	check_tab_size(int *tab, int len, t_stack *stack_a, t_stack *stack_b)
 			sort_five(stack_a, stack_b);
 		else
 			sort_small_stack(stack_a, stack_b, len);
-		free_all(stack_a, stack_b);
-		free(tab);
 		exit(0);
 	}
 	return (0);
