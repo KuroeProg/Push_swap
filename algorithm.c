@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 14:45:07 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/24 00:26:19 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 01:49:30 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 void	chunk_sort(t_stack	*stack_a, t_stack *stack_b)
 {
-	int	o_size = stack_a->size;
-	int median = 0;
-	int index;
-	int temp;
+	int	o_size;
+	int	median;
+	int	index;
+	int	temp;
 
+	o_size = stack_a->size;
+	median = 0;
 	while (stack_a->size > 2)
 	{
 		median = (median + o_size) / 2;
@@ -57,6 +59,11 @@ void	do_move(t_stack *stack_a, t_stack *stack_b, t_move *move)
 			move->rb--;
 		}
 	}
+	do_move2(stack_a, stack_b, move);
+}
+
+void	do_move2(t_stack *stack_a, t_stack *stack_b, t_move *move)
+{
 	while (move->rra > 0 || move->rrb > 0)
 	{
 		if (move->rra > 0 && move->rrb > 0)
@@ -79,9 +86,10 @@ void	do_move(t_stack *stack_a, t_stack *stack_b, t_move *move)
 	move->cost = -1;
 }
 
-void	set_node_move(t_stack *stack_a, t_stack *stack_b, t_node *node, t_move *move)
+void	set_node_move(t_stack *stack_a, t_stack *stack_b,
+	t_node *node, t_move *move)
 {
-	int 	i;
+	int		i;
 	t_node	*current;
 
 	current = node;
@@ -107,42 +115,6 @@ void	set_node_move(t_stack *stack_a, t_stack *stack_b, t_node *node, t_move *mov
 	move->rra = stack_a->size - i;
 }
 
-void	set_best_move(t_move temp_move, t_move *best_move)
-{
-	if (best_move->cost == -1 || (temp_move.ra > temp_move.rb ? temp_move.ra : temp_move.rb) < best_move->cost)
-	{
-		best_move->ra = temp_move.ra;
-		best_move->rb = temp_move.rb;
-		best_move->rra = 0;
-		best_move->rrb = 0;
-		best_move->cost = (temp_move.ra > temp_move.rb ? temp_move.ra : temp_move.rb);
-	}
-	if ((temp_move.rra > temp_move.rrb ? temp_move.rra : temp_move.rrb) < best_move->cost)
-	{
-		best_move->rra = temp_move.rra;
-		best_move->rrb = temp_move.rrb;
-		best_move->ra = 0;
-		best_move->rb = 0;
-		best_move->cost = (temp_move.rra > temp_move.rrb ? temp_move.rra : temp_move.rrb);
-	}
-	if (temp_move.ra + temp_move.rrb < best_move->cost)
-	{
-		best_move->ra = temp_move.ra;
-		best_move->rb = 0;
-		best_move->rra = 0;
-		best_move->rrb = temp_move.rrb;
-		best_move->cost = temp_move.ra + temp_move.rrb;
-	}
-	if (temp_move.rb + temp_move.rra < best_move->cost)
-	{
-		best_move->ra = 0;
-		best_move->rb = temp_move.rb;
-		best_move->rra = temp_move.rra;
-		best_move->rrb = 0;
-		best_move->cost = temp_move.rb + temp_move.rra;
-	}
-}
-
 void	turkish_sort(t_stack *stack_a, t_stack *stack_b)
 {
 	t_move	best_move;
@@ -150,7 +122,6 @@ void	turkish_sort(t_stack *stack_a, t_stack *stack_b)
 	t_node	*current;
 	int		i;
 
-	best_move.cost = INT_MAX;
 	while (stack_b->size > 0)
 	{
 		current = stack_b->top;
@@ -161,10 +132,9 @@ void	turkish_sort(t_stack *stack_a, t_stack *stack_b)
 			set_best_move(temp_move, &best_move);
 			current = current->next;
 			i++;
-		}	
+		}
 		do_move(stack_a, stack_b, &best_move);
 		pa(stack_a, stack_b);
-		// print_stacks(stack_a, stack_b);
 	}
 	if (stack_a->top->data < stack_a->size / 2)
 		while (stack_a->top != get_min_node(stack_a))
@@ -173,10 +143,6 @@ void	turkish_sort(t_stack *stack_a, t_stack *stack_b)
 		while (stack_a->top != get_min_node(stack_a))
 			rra(stack_a);
 }
-
-
-
-
 
 /*
 void	bubble_sort(t_stack *stack)
@@ -209,4 +175,3 @@ void	bubble_sort(t_stack *stack)
 	}
 	printf("%d\n", count);
 }*/
-

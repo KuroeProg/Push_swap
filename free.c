@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:59:48 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/24 00:40:35 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 02:23:46 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,15 @@
 
 void	free_all(t_stack *a, t_stack *b)
 {
-	
 	free_stack(a);
 	free_stack(b);
 }
 
 void	free_stack(t_stack *stack)
 {
-	t_node *current;
-	t_node	*temp;
-	int		i;
+	t_node		*current;
+	t_node		*temp;
+	int			i;
 
 	if (!stack->top)
 		return ;

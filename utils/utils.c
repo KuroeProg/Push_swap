@@ -1,5 +1,5 @@
 /* ************************************************************************** */
-/*                                                                            */
+/*					                                                        */
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -14,9 +14,9 @@
 
 long	ft_atol(char *str)
 {
-	int	i;
-	int sign;
-	long result;
+	int		i;
+	int		sign;
+	long	result;
 
 	i = 0;
 	sign = 1;
@@ -37,33 +37,31 @@ long	ft_atol(char *str)
 	return (result * sign);
 }
 
-
 int	is_indouble(int *tab, int n)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = 0;
-    while (i < n - 1)
-    {
-        j = i + 1;
-        while (j < n)
-        {
-            if (tab[i] == tab[j])
-                return (1);
-            j++;
-        }
-        i++;
-    }
-    return (0);
+	i = 0;
+	while (i < n - 1)
+	{
+		j = i + 1;
+		while (j < n)
+		{
+			if (tab[i] == tab[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
 int	check_size(int *tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
-
 	while (tab[i])
 		i++;
 	return (i);

@@ -1,13 +1,14 @@
 NAME = push_swap
 CC = clang
-FLAGS = -Wall -Werror -Wextra -g
+FLAGS = -Werror -Wextra -Werror -g
 
 LIBFT_DIR = inc/libft
 PRINTF_DIR = inc/libft/ft_printf
 
 SRCS = main.c instruction.c node.c stack.c algorithm.c parsing.c \
-	utils/utils.c utils/utils2.c error.c free.c \
-	little_size.c little_sizebis.c sort_five.c init.c
+	utils/utils.c utils/utils2.c error.c free.c algorithm2.c \
+	little_size.c little_sizebis.c sort_five.c init.c instruction2.c \
+	instruction3.c stack_pop.c stack3.c stack_push.c
 
 OBJS = $(SRCS:.c=.o)
 

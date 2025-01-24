@@ -1,31 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   node.c                                             :+:      :+:    :+:   */
+/*   instruction2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/18 19:30:18 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/18 21:49:43 by cfiachet         ###   ########.fr       */
+/*   Created: 2025/01/24 01:51:36 by cfiachet          #+#    #+#             */
+/*   Updated: 2025/01/24 01:51:39 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_node	*create_node(int data)
+void	ra(t_stack *stack_a)
 {
-	t_node	*node;
-	
-	node = malloc(sizeof(t_node));
-	if (!node)
-		return (NULL);
-	node->data = data;
-	node->prev = NULL;
-	node->next = NULL;
-	return (node);
+	rotate(stack_a);
+	ft_printf("ra\n");
 }
-void	link_nodes(t_node *a, t_node *b)
+
+void	rb(t_stack *stack_b)
 {
-	a->next = b;
-	b->prev = a;
+	rotate(stack_b);
+	ft_printf("rb\n");
+}
+
+void	rr(t_stack *stack_a, t_stack *stack_b)
+{
+	rotate(stack_a);
+	rotate(stack_b);
+	ft_printf("rr\n");
+}
+
+void	rra(t_stack *stack_a)
+{
+	rreverse(stack_a);
+	ft_printf("rra\n");
+}
+
+void	rrb(t_stack *stack_b)
+{
+	rreverse(stack_b);
+	ft_printf("rrb\n");
 }
