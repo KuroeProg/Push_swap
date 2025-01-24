@@ -3,7 +3,27 @@
 int	ft_is_int(char *str)
 {
     long num;
+    int i;
 
+    i = 0;
+    if (str[0] == '-' || str[0] == '+')
+    {
+        i++;
+        if (!ft_isdigit(str[1]))
+        {
+            write(2, "Error\n", 6);
+            return (0);
+        }
+    }
+    while (str[i])
+    {
+        if (!ft_isdigit(str[i]))
+        {
+            write(2, "Error\n", 6);
+            return (0);
+        }
+        i++;
+    }
     num = ft_atol(str);
     if (num < INT_MIN || num > INT_MAX)
     {

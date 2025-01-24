@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 19:30:23 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/23 21:07:18 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 00:39:07 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void 	fill_stack(t_stack *stack, int *tab, int size)
 		prev = next;
 		i++;
 	}
-	link_nodes(next, stack->top);
+	if (size > 1)
+		link_nodes(next, stack->top);
 	stack->size = size;
 }
 

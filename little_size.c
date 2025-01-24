@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 16:49:57 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/23 21:32:31 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 00:39:44 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,11 @@ int	check_tab_size(int *tab, int len, t_stack *stack_a, t_stack *stack_b)
 	if (len < 22)
 	{
 		if (len == 0 || len == 1)
+		{
+			free_all(stack_a, stack_b);
 			free(tab);
+			exit(0);
+		}
 		if (len == 2)
 		{
 			if (tab[0] > tab[1])

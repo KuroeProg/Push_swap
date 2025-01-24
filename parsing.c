@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/23 21:35:00 by cfiachet          #+#    #+#             */
+/*   Updated: 2025/01/23 21:35:02 by cfiachet         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -37,6 +48,7 @@ int	parsing_args(char **argv, t_point *pt)
 
     i = 0;
     while (argv[i])
+
         total_len += ft_strlen(argv[i++]) + 1;
     joined_args = malloc(total_len);
     if (!joined_args)
