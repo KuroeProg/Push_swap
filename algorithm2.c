@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 01:23:16 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/24 19:18:30 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 19:24:55 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,9 @@ void	set_best_move2(t_move temp_move, t_move *best_move, int max_rra_rrb)
 		best_move->cost = temp_move.rb + temp_move.rra;
 	}
 }
+
 void	turkish_sort2(t_stack *stack_a)
 {
 	while (stack_a->top != get_min_node(stack_a))
-			rra(stack_a);
+		rra(stack_a);
 }
