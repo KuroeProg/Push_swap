@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:59:48 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/24 02:23:46 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 12:54:55 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,6 @@ void	free_stack(t_stack *stack)
 		free(current);
 		current = temp;
 	}
+	if (stack->size == 0)
+		free(stack->top);
 }

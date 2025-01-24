@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 00:18:26 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/24 02:04:03 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 12:59:08 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	*formatted_data(int *data, int size)
 	int	tmp;
 	int	i;
 
+	if (size == 0)
+		return (free(data), NULL);
 	formatted = malloc(sizeof(int) * size);
 	if (!formatted)
 		return (free(data), NULL);
@@ -45,7 +47,7 @@ int	main(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 
-	if (argc < 2)
+	if (argc < 2 || !argv)
 		return (1);
 	init_data(&pt, &a, &b);
 	pt.i = 0;

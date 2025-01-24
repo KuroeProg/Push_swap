@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 19:30:23 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/24 12:45:11 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 13:02:29 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	fill_stack(t_stack *stack, int *tab, int size)
 	t_node	*prev;
 	t_node	*next;
 
+	if (size == 0)
+		return ;
 	prev = create_node(tab[0]);
 	stack->top = prev;
 	i = 1;
