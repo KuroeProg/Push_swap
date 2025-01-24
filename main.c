@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 00:18:26 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/24 12:59:08 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:51:15 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	main(int argc, char **argv)
 		return (1);
 	tab = pt.tab;
 	if (!tab || !check_tab(tab, pt.len))
-		return (ft_error(1), free(tab), 1);
+		return (ft_error(1), 1);
 	tab = formatted_data(tab, pt.len);
 	a = create_stack();
 	b = create_stack();

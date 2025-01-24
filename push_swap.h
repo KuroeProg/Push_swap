@@ -133,5 +133,7 @@ void	push(t_stack *stack, t_node *a);
 void	free_all(t_stack *a, t_stack *b);
 void	free_stack(t_stack *stack);
 void	free_func(int *tab, t_stack *stack_a, t_stack *stack_b);
+void	init_best_move(t_move *best_move);
+void	turkish_sort2(t_stack *stack_a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 14:39:28 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/24 01:50:25 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 19:15:53 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,13 @@ void	init_data(t_point *pt, t_stack *a, t_stack *b)
 	b->size = 0;
 	b->min = 0;
 	b->max = 0;
+}
+
+void	init_best_move(t_move *best_move)
+{
+	best_move->ra = 0;
+	best_move->rra = 0;
+	best_move->rb = 0;
+	best_move->rrb = 0;
+	best_move->cost = -1;
 }

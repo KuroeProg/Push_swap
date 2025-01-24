@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 19:30:23 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/24 13:02:29 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 19:07:14 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ t_stack	create_stack(void)
 {
 	t_stack	stack;
 
+	stack.max = INT_MIN;
+	stack.min = INT_MAX;
 	stack.top = NULL;
 	stack.size = 0;
 	return (stack);

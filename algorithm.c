@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 14:45:07 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/24 01:49:30 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 19:18:16 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,6 +122,7 @@ void	turkish_sort(t_stack *stack_a, t_stack *stack_b)
 	t_node	*current;
 	int		i;
 
+	init_best_move(&best_move);
 	while (stack_b->size > 0)
 	{
 		current = stack_b->top;
@@ -140,8 +141,7 @@ void	turkish_sort(t_stack *stack_a, t_stack *stack_b)
 		while (stack_a->top != get_min_node(stack_a))
 			ra(stack_a);
 	else
-		while (stack_a->top != get_min_node(stack_a))
-			rra(stack_a);
+		turkish_sort2(stack_a);
 }
 
 /*

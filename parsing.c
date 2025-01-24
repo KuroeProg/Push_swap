@@ -6,7 +6,7 @@
 /*   By: cfiachet <cfiachet@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 21:35:00 by cfiachet          #+#    #+#             */
-/*   Updated: 2025/01/24 02:28:12 by cfiachet         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:49:42 by cfiachet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,19 +81,11 @@ int	parsing_args2(char **argv, t_point *pt, int i, char *joined_args)
 
 int	check_tab(int *tab, int len)
 {
-	int	i;
-
 	if (is_indouble(tab, len) == 1)
-		return (0);
-	i = 0;
-	while (i < len)
 	{
-		if (tab[i] > INT_MAX || tab[i] < INT_MIN)
-		{
-			ft_printf("Error\n");
-			return (0);
-		}
-		i++;
+		free(tab);
+		ft_error(1);
+		return (0);
 	}
 	return (1);
 }
